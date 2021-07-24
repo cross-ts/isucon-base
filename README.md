@@ -1,1 +1,1 @@
-# isucon-base
+# vs ISUCON
