@@ -1,0 +1,5 @@
+- name: restart webapp
+  systemd:
+    name: "{{ isucon }}.{{ item }}"
+    state: restarted
+  with_items: "{{ languages.enable }}"

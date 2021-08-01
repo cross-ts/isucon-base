@@ -19,13 +19,13 @@ init:
 .PHONY: ansible
 ansible:
 	@ansible-playbook \
-		-i ansible/inventory \
+		-i ansible/inventories/inventory \
 		ansible/playbook.yml
 
 .PHONY: deploy
 deploy:
-	@echo ansible-playbook \
-		-i ansible/inventory \
+	@ansible-playbook \
+		-i ansible/inventories/deploy \
 		ansible/playbook.yml
 
 .PHONY: newrelic
