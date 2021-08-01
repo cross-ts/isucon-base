@@ -1,3 +1,20 @@
+- hosts: common
+  remote_user: ubuntu
+  become: true
+
+  tasks:
+    - name: apt update/upgrade
+      apt:
+        update_cache: yes
+        cache_valid_time: 86400
+        upgrade: yes
+
+    - include_tasks: tasks/alp.yml
+    - include_tasks: tasks/redis.yml
+    - include_tasks: tasks/nginx.yml
+    - include_tasks: tasks/pt.yml
+    - include_tasks: tasks/mysql.yml
+
 - hosts: web
   remote_user: ubuntu
   become: true
@@ -25,3 +42,4 @@
         upgrade: yes
 
     - include_tasks: tasks/pt.yml
+    - include_tasks: tasks/mysql.yml

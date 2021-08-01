@@ -1,5 +1,6 @@
+[common]
+common
+
 [web]
-web
 
 [db]
-db
