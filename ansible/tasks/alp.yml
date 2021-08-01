@@ -25,10 +25,3 @@
   template:
     src: templates/alp/config.yml
     dest: /tmp/alp/config.yml
-  vars:
-    matching_groups:
-      - '^.*.js$'
-      - '^.*.css$'
-      - '^.*.png$'
-    # - '^/api/user/reservations/[0-9]+$'
-    # - '^/api/user/reservations/[0-9]+/cancel$'
