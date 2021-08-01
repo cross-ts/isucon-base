@@ -2,7 +2,7 @@ WEB_SERVER := isucon
 DB_SERVER := isucon
 
 ISUCON := isuumo
-LAUGUAGE := ruby
+LANGUAGE := ruby
 
 ##################################################
 #   ___             _    _          _            #
@@ -68,4 +68,4 @@ pt:
 
 .PHONY: log
 log:
-	@ssh -t $(WEB_SERVER) "sudo journalctl -f -u $(ISUCON).$(LAUGUAGE)"
+	@ssh -t $(WEB_SERVER) "sudo journalctl -f -u $(ISUCON).$(LANGUAGE)"
