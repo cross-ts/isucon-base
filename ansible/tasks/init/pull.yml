@@ -1,10 +1,13 @@
 - name: get sources
   block:
-    - name: webappを取得する
+    - name: webappと初期化用SQLを取得する
       synchronize:
         mode: pull
-        src: "/home/isucon/{{ isucon }}/webapp/ruby"
+        src: "/home/isucon/{{ isucon }}/webapp/{{ item }}"
         dest: ../isucon/webapp/
+      with_items:
+        - ruby
+        - db
 
     - name: .bashrcを取得する
       synchronize:
