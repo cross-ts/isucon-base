@@ -1,4 +1,4 @@
-- name: log_formatをデプロイする
+- name: log_format.confをデプロイする
   template:
     src: templates/nginx/conf.d/log_format.conf
     dest: /etc/nginx/conf.d/log_format.conf
