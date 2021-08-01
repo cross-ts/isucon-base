@@ -1,0 +1,13 @@
+file: /var/log/nginx/access.log
+sort: sum
+reverse: true
+format: md
+output: count,1xx,2xx,3xx,4xx,5xx,method,uri,sum,avg,p90,p95,p99,sum_body,avg_body
+matching_groups:
+{% for matching_group in matching_groups %}
+- '{{ matching_group }}'
+{% endfor %}
+
+ltsv: {}
+json: {}
+regexp: {}

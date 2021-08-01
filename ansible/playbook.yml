@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: web
   remote_user: ubuntu
   become: true
 
@@ -9,56 +9,19 @@
         cache_valid_time: 86400
         upgrade: yes
 
-    - name: Install necessary commands
+    - include_tasks: tasks/alp.yml
+    - include_tasks: tasks/redis.yml
+    - include_tasks: tasks/nginx.yml
+
+- hosts: db
+  remote_user: ubuntu
+  become: true
+
+  tasks:
+    - name: apt update/upgrade
       apt:
-        name:
-          - unzip
+        update_cache: yes
+        cache_valid_time: 86400
+        upgrade: yes
 
-    - name: Check pt-query-digest
-      stat:
-        path: /usr/bin/pt-query-digest
-      register: pt
-
-    - name: Install percona-toolkit
-      when: not pt.stat.exists
-      block:
-        - name: Add percona-toolkit repository
-          apt:
-            deb: https://repo.percona.com/apt/percona-release_latest.generic_all.deb
-
-        - name: apt install percona-toolkit
-          apt:
-            name: percona-toolkit
-
-    - name: Check alp
-      stat:
-        path: /usr/local/bin/alp
-      register: alp
-
-    - name: Install alp
-      when: not alp.stat.exists
-      unarchive:
-        src: https://github.com/tkuchiki/alp/releases/download/v1.0.5/alp_linux_amd64.zip
-        dest: /usr/local/bin
-        remote_src: yes
-
-    - name: Check Redis
-      stat:
-        path: /usr/bin/redis-server
-      register: redis
-
-    - name: Install Redis
-      when: not redis.stat.exists
-      block:
-        - name: Add redis repository
-          apt_repository:
-            repo: ppa:redislabs/redis
-
-        - name: Install redis
-          apt:
-            name: redis
-
-        - name: Disable systemd units
-          systemd:
-            name: redis-server
-            state: stopped
+    - include_tasks: tasks/pt.yml

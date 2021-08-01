@@ -1,0 +1,20 @@
+- name: redis-serverが入っていることを確認する
+  stat:
+    path: /usr/bin/redis-server
+  register: redis
+
+- name: RedisをInstallする
+  when: not redis.stat.exists
+  block:
+    - name: redisのリポジトリを追加
+      apt_repository:
+        repo: ppa:redislabs/redis
+
+    - name: aptでredisをインストールする
+      apt:
+        name: redis
+
+- name: Redisはdisabledにしておく
+  systemd:
+    name: redis-server
+    state: stopped
