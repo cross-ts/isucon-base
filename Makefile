@@ -46,12 +46,12 @@ bench:
 .PHONY: alp
 alp:
 	@ssh $(WEB_SERVER) "alp -c /tmp/alp/config.yml ltsv" | tee monitor/alp.md
-	@ssh $(WEB_SERVER) ": > sudo tee /var/log/nginx/access.log"
+	@ssh $(WEB_SERVER) ": | sudo tee /var/log/nginx/access.log"
 
 .PHONY: pt
 pt:
 	@ssh $(DB_SERVER) "pt-query-digest /var/log/mysql/slow.log" | tee monitor/pt.txt
-	@ssh $(DB_SERVER) ": > sudo tee /var/log/mysql/slow.log"
+	@ssh $(DB_SERVER) ": | sudo tee /var/log/mysql/slow.log"
 
 .PHONY: log
 log:
