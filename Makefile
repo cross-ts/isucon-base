@@ -1,3 +1,6 @@
+WEB_SERVER := web
+DB_SERVER := db
+
 .PHONY: ansible
 ansible:
 	@ansible-playbook \
@@ -5,4 +8,5 @@ ansible:
 		ansible/playbook.yml
 
 alp:
-	@ssh <server> alp -c /tmp/alp/config.yml ltsv | tee monitor/alp.md
+	@ssh $(WEB_SERVER) "alp -c /tmp/alp/config.yml ltsv" | tee monitor/alp.md
+	@ssh $(WEB_SERVER) ": > sudo tee /var/log/nginx/access.log"

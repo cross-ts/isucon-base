@@ -1,2 +1,5 @@
-[common]
-test
+[web]
+web
+
+[db]
+db
