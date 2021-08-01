@@ -2,20 +2,12 @@
   block:
     - name: stop
       systemd:
-        name: "isuumo.{{ item }}"
+        name: "{{ isucon }}.{{ item }}"
         state: stopped
-      with_items:
-        - deno
-        - go
-        - nodejs
-        - perl
-        - php
-        - python
-        - rust
+      with_items: "{{ languages.disable }}"
 
     - name: start
       systemd:
-        name: "isuumo.{{ item }}"
+        name: "{{ isucon }}.{{ item }}"
         state: started
-      with_items:
-        - ruby
+      with_items: "{{ languages.enable }}"

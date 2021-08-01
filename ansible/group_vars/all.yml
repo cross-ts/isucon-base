@@ -1,0 +1,12 @@
+isucon: isuumo
+languages:
+  enable:
+    - ruby
+  disable:
+    - go
+    - deno
+    - nodejs
+    - perl
+    - php
+    - python
+    - rust
