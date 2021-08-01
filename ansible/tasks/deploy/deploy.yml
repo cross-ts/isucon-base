@@ -1,0 +1,23 @@
+- name: deploy
+  block:
+    - name: webappをデプロイする
+      synchronize:
+        src: ../isucon/webapp/ruby
+        dest: "/home/isucon/{{ isucon }}/webapp/"
+      register: webapp_codes
+
+    - name: 初期化用SQLをデプロイする
+      synchronize:
+        src: ../isucon/webapp/db
+        dest: "/home/isucon/{{ isucon }}/webapp/"
+
+    - name: .bashrcをデプロイする
+      synchronize:
+        src: ../isucon/.bashrc
+        dest: /home/isucon
+
+- name: restart webapp
+  systemd:
+    name: "{{ isucon }}.{{ item }}"
+    state: restarted
+  with_items: "{{ languages.enable }}"

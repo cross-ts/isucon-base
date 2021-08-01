@@ -1,0 +1,61 @@
+- hosts: common
+  remote_user: ubuntu
+  become: true
+
+  tasks:
+    - name: apt update/upgrade
+      apt:
+        update_cache: yes
+        cache_valid_time: 86400
+        upgrade: yes
+
+    - include_tasks: tasks/web/alp.yml
+    - include_tasks: tasks/web/redis.yml
+    - include_tasks: tasks/web/nginx.yml
+    - include_tasks: tasks/db/pt.yml
+    - include_tasks: tasks/db/mysql.yml
+    - include_tasks: tasks/web/language.yml
+
+- hosts: web
+  remote_user: ubuntu
+  become: true
+
+  tasks:
+    - name: apt update/upgrade
+      apt:
+        update_cache: yes
+        cache_valid_time: 86400
+        upgrade: yes
+
+    - include_tasks: tasks/web/alp.yml
+    - include_tasks: tasks/web/redis.yml
+    - include_tasks: tasks/web/nginx.yml
+    - include_tasks: tasks/web/language.yml
+
+- hosts: db
+  remote_user: ubuntu
+  become: true
+
+  tasks:
+    - name: apt update/upgrade
+      apt:
+        update_cache: yes
+        cache_valid_time: 86400
+        upgrade: yes
+
+    - include_tasks: tasks/db/pt.yml
+    - include_tasks: tasks/db/mysql.yml
+
+- hosts: init
+  remote_user: ubuntu
+  become: true
+
+  tasks:
+    - include_tasks: tasks/init/pull.yml
+
+- hosts: deploy
+  remote_user: ubuntu
+  become: true
+
+  tasks:
+    - include_tasks: tasks/deploy/deploy.yml
