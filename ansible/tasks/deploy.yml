@@ -1,3 +1,15 @@
+- name: deploy
+  block:
+    - name: webappをデプロイする
+      synchronize:
+        src: ../isucon/webapp/ruby
+        dest: "/home/isucon/{{ isucon }}/webapp/"
+
+    - name: .bashrcをデプロイする
+      synchronize:
+        src: ../isucon/.bashrc
+        dest: /home/isucon
+
 - name: restart webapp
   systemd:
     name: "{{ isucon }}.{{ item }}"

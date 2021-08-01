@@ -46,6 +46,13 @@
     - include_tasks: tasks/pt.yml
     - include_tasks: tasks/mysql.yml
 
+- hosts: init
+  remote_user: ubuntu
+  become: true
+
+  tasks:
+    - include_tasks: tasks/pull.yml
+
 - hosts: deploy
   remote_user: ubuntu
   become: true

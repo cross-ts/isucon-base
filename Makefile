@@ -15,6 +15,9 @@ LAUGUAGE := ruby
 init:
 	@ssh $(WEB_SERVER) "sudo systemctl list-unit-files --type=service" | tee monitor/list-unit-files.txt
 	@ssh $(WEB_SERVER) "ps auxf" | tee monitor/ps_auxf.txt
+	@ansible-playbook \
+		-i ansible/inventories/init \
+		ansible/playbook.yml
 
 .PHONY: ansible
 ansible:

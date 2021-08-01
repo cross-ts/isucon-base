@@ -1,0 +1,13 @@
+- name: get sources
+  block:
+    - name: webappを取得する
+      synchronize:
+        mode: pull
+        src: "/home/isucon/{{ isucon }}/webapp/ruby"
+        dest: ../isucon/webapp/
+
+    - name: .bashrcを取得する
+      synchronize:
+        mode: pull
+        src: /home/isucon/.bashrc
+        dest: ../isucon/
