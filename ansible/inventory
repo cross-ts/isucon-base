@@ -1,6 +1,8 @@
 [common]
-common
+isucon
 
 [web]
 
 [db]
+
+[deploy]

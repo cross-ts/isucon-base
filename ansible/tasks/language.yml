@@ -1,0 +1,21 @@
+- name: 使用言語を変更する
+  block:
+    - name: stop
+      systemd:
+        name: "isuumo.{{ item }}"
+        state: stopped
+      with_items:
+        - deno
+        - go
+        - nodejs
+        - perl
+        - php
+        - python
+        - rust
+
+    - name: start
+      systemd:
+        name: "isuumo.{{ item }}"
+        state: started
+      with_items:
+        - ruby

@@ -14,6 +14,7 @@
     - include_tasks: tasks/nginx.yml
     - include_tasks: tasks/pt.yml
     - include_tasks: tasks/mysql.yml
+    - include_tasks: tasks/language.yml
 
 - hosts: web
   remote_user: ubuntu
@@ -29,6 +30,7 @@
     - include_tasks: tasks/alp.yml
     - include_tasks: tasks/redis.yml
     - include_tasks: tasks/nginx.yml
+    - include_tasks: tasks/language.yml
 
 - hosts: db
   remote_user: ubuntu
@@ -43,3 +45,10 @@
 
     - include_tasks: tasks/pt.yml
     - include_tasks: tasks/mysql.yml
+
+- hosts: deploy
+  remote_user: ubuntu
+  become: true
+
+  tasks:
+    - include_tasks: tasks/deploy.yml
