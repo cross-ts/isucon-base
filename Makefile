@@ -15,14 +15,24 @@ LAUGUAGE := ruby
 init:
 	@ssh $(WEB_SERVER) "sudo systemctl list-unit-files --type=service" | tee monitor/list-unit-files.txt
 	@ssh $(WEB_SERVER) "ps auxf" | tee monitor/ps_auxf.txt
-	@ansible-playbook \
-		-i ansible/inventories/init \
-		ansible/playbook.yml
 
 .PHONY: ansible
 ansible:
 	@ansible-playbook \
 		-i ansible/inventories/inventory \
+		ansible/playbook.yml
+
+################################
+#   ___         _ _            #
+#  / __|___  __| (_)_ _  __ _  #
+# | (__/ _ \/ _` | | ' \/ _` | #
+#  \___\___/\__,_|_|_||_\__, | #
+#                       |___/  #
+################################
+.PHONY: pull
+pull:
+	@ansible-playbook \
+		-i ansible/inventories/init \
 		ansible/playbook.yml
 
 .PHONY: deploy

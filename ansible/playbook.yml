@@ -9,12 +9,12 @@
         cache_valid_time: 86400
         upgrade: yes
 
-    - include_tasks: tasks/alp.yml
-    - include_tasks: tasks/redis.yml
-    - include_tasks: tasks/nginx.yml
-    - include_tasks: tasks/pt.yml
-    - include_tasks: tasks/mysql.yml
-    - include_tasks: tasks/language.yml
+    - include_tasks: tasks/web/alp.yml
+    - include_tasks: tasks/web/redis.yml
+    - include_tasks: tasks/web/nginx.yml
+    - include_tasks: tasks/db/pt.yml
+    - include_tasks: tasks/db/mysql.yml
+    - include_tasks: tasks/web/language.yml
 
 - hosts: web
   remote_user: ubuntu
@@ -27,10 +27,10 @@
         cache_valid_time: 86400
         upgrade: yes
 
-    - include_tasks: tasks/alp.yml
-    - include_tasks: tasks/redis.yml
-    - include_tasks: tasks/nginx.yml
-    - include_tasks: tasks/language.yml
+    - include_tasks: tasks/web/alp.yml
+    - include_tasks: tasks/web/redis.yml
+    - include_tasks: tasks/web/nginx.yml
+    - include_tasks: tasks/web/language.yml
 
 - hosts: db
   remote_user: ubuntu
@@ -43,19 +43,19 @@
         cache_valid_time: 86400
         upgrade: yes
 
-    - include_tasks: tasks/pt.yml
-    - include_tasks: tasks/mysql.yml
+    - include_tasks: tasks/db/pt.yml
+    - include_tasks: tasks/db/mysql.yml
 
 - hosts: init
   remote_user: ubuntu
   become: true
 
   tasks:
-    - include_tasks: tasks/pull.yml
+    - include_tasks: tasks/init/pull.yml
 
 - hosts: deploy
   remote_user: ubuntu
   become: true
 
   tasks:
-    - include_tasks: tasks/deploy.yml
+    - include_tasks: tasks/deploy/deploy.yml

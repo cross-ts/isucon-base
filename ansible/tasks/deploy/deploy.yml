@@ -4,6 +4,7 @@
       synchronize:
         src: ../isucon/webapp/ruby
         dest: "/home/isucon/{{ isucon }}/webapp/"
+      register: webapp_codes
 
     - name: .bashrcをデプロイする
       synchronize:
