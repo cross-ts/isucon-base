@@ -1,0 +1,14 @@
+- name: log_formatをデプロイする
+  template:
+    src: templates/nginx/conf.d/log_format.conf
+    dest: /etc/nginx/conf.d/log_format.conf
+  register: log_format
+
+- name: configを反映する
+  when: log_format is changed
+  block:
+    - name: log_formatを反映する
+      command: nginx -s reload
+
+    - name: 現在のaccess_logを空にする
+      shell: ": > /var/log/nginx/access.log"
