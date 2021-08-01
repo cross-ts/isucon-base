@@ -1,0 +1,15 @@
+- name: pt-query-digestが入っていることを確認
+  stat:
+    path: /usr/bin/pt-query-digest
+  register: pt
+
+- name: percona-toolkitをインストール
+  when: not pt.stat.exists
+  block:
+    - name: percona-toolkitのaptリポジトリを追加
+      apt:
+        deb: https://repo.percona.com/apt/percona-release_latest.generic_all.deb
+
+    - name: aptでpercona-toolkitをインストール
+      apt:
+        name: percona-toolkit

@@ -1,0 +1,34 @@
+- name: alpが入っていることを確認
+  stat:
+    path: /usr/local/bin/alp
+  register: alp
+
+- name: alpをインストールする
+  when: not alp.stat.exists
+  block:
+    - name: unarchiveに必要なunzipをインストール
+      apt:
+        name: unzip
+
+    - name: alpのバイナリを取得
+      unarchive:
+        src: https://github.com/tkuchiki/alp/releases/download/v1.0.5/alp_linux_amd64.zip
+        dest: /usr/local/bin
+        remote_src: yes
+
+    - name: config用のディレクトリを作成
+      file:
+        path: /tmp/alp
+        state: directory
+
+- name: configファイルをデプロイする
+  template:
+    src: templates/alp/config.yml
+    dest: /tmp/alp/config.yml
+  vars:
+    matching_groups:
+      - '^.*.js$'
+      - '^.*.css$'
+      - '^.*.png$'
+    # - '^/api/user/reservations/[0-9]+$'
+    # - '^/api/user/reservations/[0-9]+/cancel$'
