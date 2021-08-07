@@ -1,0 +1,14 @@
+- name: Apply mysql.cnf
+  file:
+    src: "/home/{{ application_user }}/git/isucon/mysql/conf.d/mysql.cnf"
+    dest: /etc/mysql/conf.d/mysql.cnf
+    owner: root
+    group: root
+    state: link
+
+- name: Reload mysql
+  systemd:
+    name: mysql
+    state: restarted
+    daemon_reload: yes
+    enabled: yes

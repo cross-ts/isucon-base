@@ -1,1 +1,1 @@
-# vs ISUCON
+# 対ISUCON用リポジトリ
