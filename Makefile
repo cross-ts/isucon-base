@@ -1,3 +1,6 @@
+APPLICATION_NAME := isuumo
+LANGUAGE := ruby
+
 COMMON_SERVER := isucon1
 
 .PHONY: monitor
@@ -8,7 +11,7 @@ monitor:
 
 .PHONY: log
 log:
-	@ssh $(COMMON_SERVER) "sudo journalctl -f -u isuumo.ruby"
+	@ssh $(COMMON_SERVER) "sudo journalctl -f -u $(APPLICATION_NAME).$(LANGUAGE)"
 
 .PHONY: ansible
 ansible:
