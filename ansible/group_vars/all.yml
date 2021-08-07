@@ -1,12 +1,17 @@
-isucon: isuumo
+# ユーザ名
+application_user: isucon
+
+# 今回のアプリ名
+application_name: isuumo
+
+# 使用する言語設定
 languages:
   enable:
     - ruby
   disable:
     - go
-    - deno
-    - nodejs
     - perl
     - php
     - python
     - rust
+    - nodejs
