@@ -1,0 +1,25 @@
+- hosts: all
+  become: yes
+  become_user: root
+  roles:
+    - role: ssh
+    - role: git
+
+- hosts: common
+  become: yes
+  become_user: root
+  roles:
+    - role: alp
+    - role: pt
+
+- hosts: web
+  become: yes
+  become_user: root
+  roles:
+    - role: alp
+
+- hosts: db
+  become: yes
+  become_user: root
+  roles:
+    - role: pt
