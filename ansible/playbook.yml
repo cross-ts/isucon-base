@@ -4,6 +4,7 @@
   roles:
     - role: ssh
     - role: git
+    - role: htop
 
 - hosts: common
   become: yes
