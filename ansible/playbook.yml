@@ -2,6 +2,7 @@
   become: yes
   become_user: root
   roles:
+    - role: init
     - role: ssh
     - role: git
     - role: htop
