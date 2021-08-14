@@ -5,6 +5,7 @@
     - role: ssh
     - role: git
     - role: htop
+    - role: purge
 
 - hosts: common
   become: yes
