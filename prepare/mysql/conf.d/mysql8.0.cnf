@@ -40,20 +40,26 @@ key_buffer_size=16M
 
 # The size of the memory buffer InnoDB uses to cache data
 # and indexes of its tables.
+# NOTE: ~ 75% of machine's memory size
 innodb_buffer_pool_size=512M
 
 # The size of the buffer which InnoDB uses to write log to
 # the log files on disk.
+# NOTE: Increase if you are insert, update, or delete a lot of rows in a single transaction.
 innodb_log_buffer_size=16M
 
 # Size of each log file (in bytes).
-innodb_log_file_size=512
+innodb_log_file_size=512M
 
 # Number of background read I/O threads in InnoDB.
 innodb_read_io_threads = 8
 
 # Number of background write I/O threads in InnoDB.
 innodb_write_io_threads = 8
+
+# With which method to flush data
+# NOTE: If there are processes other than MySQL that perform heavy disk I/O, use O_DIRECT and keep the InnoDB buffer pool size small.
+#innodb_flush_method = O_DIRECT
 
 # Enable InnoDB doublewrite buffer (enabled by default).
 # Disable with --skip-innodb-doublewrite.
@@ -71,9 +77,8 @@ innodb_lock_wait_timeout = 5
 # 2 => No AUTOINC locking (unsafe for SBR)
 innodb_autoinc_lock_mode = 2
 
-
 # Max packet length to send to or receive from the server
-# max_allowed_packet	= 16M
+#max_allowed_packet	= 16M
 
 # Dump the buffer pool into a file named @@innodb_buffer_pool_filename
 # (Defaults to on; use --skip-innodb-buffer-pool-dump-at-shutdown to disable.)
