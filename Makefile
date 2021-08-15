@@ -1,4 +1,4 @@
-APPLICATION_NAME := isuumo
+APPLICATION_NAME := app_name
 LANGUAGE := ruby
 
 COMMON_SERVER := isucon1
