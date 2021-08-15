@@ -1,15 +1,10 @@
 [mysql]
+default-character-set=utf8mb4
 
 [mysqld]
-# Configures the name prefix to use for binary log files.
-# If the --log-bin option is not supplied, the name prefix
-# defaults to "binlog". If the --log-bin option is supplied
-# without argument, the name prefix defaults to
-# "HOSTNAME-bin", where HOSTNAME is the machine's hostname.
-# To set a different name prefix for binary log files, use
-# --log-bin=name. To disable binary logging, use the
-# --skip-log-bin or --disable-log-bin option.
-disable_log_bin
+# Set the default character set.
+# (Defaults to latin1;)
+character-set-server=utf8mb4
 
 # Log slow queries to a table or log file. Defaults logging
 # to a file hostname-slow.log or a table mysql.slow_log if
@@ -93,3 +88,22 @@ innodb_buffer_pool_dump_at_shutdown = 1
 #Load the buffer pool from a file named @@innodb_buffer_pool_filename
 # (Defaults to on; use --skip-innodb-buffer-pool-load-at-startup to disable.)
 innodb_buffer_pool_load_at_startup = 1
+
+# OFF = Don't cache or retrieve results. ON = Cache all
+# results except SELECT SQL_NO_CACHE ... queries. DEMAND =
+# Cache only SELECT SQL_CACHE ... queries. This variable is
+# deprecated and will be removed in a future release.
+query_cache_type = 1
+
+# Don't cache results that are bigger than this. This
+# variable is deprecated and will be removed in a future
+# release.
+query_cache_limit = 2M
+
+# The memory allocated to store results from old queries.
+# This variable is deprecated and will be removed in a
+# future release.
+query_cache_size = 256M
+
+[client]
+default-character-set=utf8mb4
