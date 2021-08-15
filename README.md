@@ -1,5 +1,8 @@
 # 対ISUCON用リポジトリ
 
+## チートシートリンク
+- [mysql](./prepare/mysql/README.md)
+
 ## 開始前対応
 ```
 $ pbcopy < ~/.ssh/isucon_deploykey.pub
