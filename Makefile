@@ -24,11 +24,6 @@ clean:
 	@ssh $(COMMON_SERVER) "ls /dev/shm/ | xargs -IXXX sudo rm -fr /dev/shm/XXX"
 	@ssh $(COMMON_SERVER) "sudo systemctl restart nginx"
 
-.PHONY: wait
-wait:
-	@echo makefileで完結させるためにsleep 10を仕込む
-	@sleep 10
-
 .PHONY: log
 log:
 	@ssh $(COMMON_SERVER) "sudo journalctl -f -u $(APPLICATION_NAME).$(LANGUAGE)"
