@@ -15,6 +15,9 @@
 
 ## チートシートリンク
 - [mysql](./prepare/mysql/README.md)
+- [nginx](./prepare/nginx/README.md)
+- [ruby](./prepare/ruby/README.md)
+- [kernel](./prepare/kernel/README.md)
 - [newrelic](./prepare/newrelic/newrelic.yml)
 
 ## 開始前対応
