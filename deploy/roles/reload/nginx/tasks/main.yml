@@ -1,14 +1,13 @@
-# 秘伝のタレを入れる前にバックアップを取る
 # - name: Apply nginx.conf
 #   file:
-#     src: "/home/{{ application_user }}/git/isucon/nginx/conf.d/{{ item }}"
-#     dest: "/etc/nginx/conf.d/{{ item }}"
+#     src: "/home/{{ application_user }}/git/isucon/nginx/{{ item }}"
+#     dest: "/etc/nginx/{{ item }}"
 #     owner: root
 #     group: root
 #     state: link
+#     force: yes
 #   with_items:
-#     - gzip.conf
-#     - log_format.conf
+#     - nginx.conf
 
 - name: Reload nginx
   systemd:

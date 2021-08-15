@@ -1,12 +1,17 @@
-# 秘伝のタレ入れる前にバックアップを取る
 # - name: Apply mysql.cnf
 #   file:
-#     src: "/home/{{ application_user }}/git/isucon/mysql/conf.d/mysql.cnf"
-#     dest: /etc/mysql/conf.d/mysql.cnf
+#     src: "/home/{{ application_user }}/git/isucon/mysql/{{ item }}"
+#     dest: "/etc/mysql/{{ item }}"
 #     owner: root
 #     group: root
 #     state: hard
 #     force: yes
+#   with_items:
+#     - mysql.cnf
+#     - conf.d/mysql.cnf
+#     - mysql.conf.d/mysql.cnf
+#     - mysql.conf.d/mysqld.cnf
+
 
 - name: slow.logを作成しておく
   file:
