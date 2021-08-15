@@ -8,6 +8,7 @@ monitor:
 	@ssh $(COMMON_SERVER) "sudo systemctl list-unit-files --type service" | tee monitor/results/list-unit-files.txt
 	@ssh $(COMMON_SERVER) "ps auxf" | tee monitor/results/ps-aufx.txt
 	@ssh $(COMMON_SERVER) "lscpu" | tee monitor/results/lscpu.txt
+	@ssh $(COMMON_SERVER) "free -h" | tee monitor/results/free.txt
 
 .PHONY: alp
 alp:

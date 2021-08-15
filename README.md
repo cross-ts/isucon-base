@@ -1,5 +1,18 @@
 # 対ISUCON用リポジトリ
 
+## モニタリング結果
+- [alp/nginx](./monitor/results/alp.md)
+- [pt-query-digest / mysql](./monitor/results/pt-query-digest.txt)
+
+## サーバ環境
+### spec
+- [CPU](./monitor/results/lscpu.txt): N core
+- [Memory](./monitor/results/free.txt): N GB
+
+### processes
+- [systemd](./monitor/results/list-unit-files.txt)
+- [ps](./monitor/results/ps-aufx.txt)
+
 ## チートシートリンク
 - [mysql](./prepare/mysql/README.md)
 - [newrelic](./prepare/newrelic/newrelic.yml)
