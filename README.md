@@ -20,9 +20,13 @@ $ make ansible
 ### ssh後
 ```
 $ ssh isucon@isucon1
+$ echo "NEW_RELIC_LICENSE_KEY=" > env.secret.sh
 $ cp -r /etc/nginx/{nginx.conf,conf.d,sites-available} ~/git/isucon/nginx/
 $ cp -r /etc/mysql/{mysql.cnf,conf.d,mysql.conf.d} ~/git/isucon/mysql/
 $ cp -r /etc/systemd/system/<isucon service files> ~/git/isucon/systemd/
 $ cp -r <path to webapp> ~/git/isucon/
-$ git cm -m 'checkin'
+$ cd git && git cm -am 'checkin'
+$ cd isucon/<path to ruby>
+$ vim Gemfile
+$ bundle
 ```
