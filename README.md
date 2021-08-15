@@ -2,6 +2,7 @@
 
 ## チートシートリンク
 - [mysql](./prepare/mysql/README.md)
+- [newrelic](./prepare/newrelic/newrelic.yml)
 
 ## 開始前対応
 ```
