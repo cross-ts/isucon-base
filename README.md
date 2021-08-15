@@ -25,8 +25,13 @@ $ cp -r /etc/nginx/{nginx.conf,conf.d,sites-available} ~/git/isucon/nginx/
 $ cp -r /etc/mysql/{mysql.cnf,conf.d,mysql.conf.d} ~/git/isucon/mysql/
 $ cp -r /etc/systemd/system/<isucon service files> ~/git/isucon/systemd/
 $ cp -r <path to webapp> ~/git/isucon/
+$ cp ~/env.sh ~/git/isucon/
 $ cd git && git cm -am 'checkin'
 $ cd isucon/<path to ruby>
 $ vim Gemfile
 $ bundle
+$ git cm -m 'bundle install'
+$ git push
 ```
+
+### あとは流れで
