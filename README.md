@@ -10,6 +10,6 @@ $ vim ansible/roles/git/vars/main.yml
 ## 初動
 ```
 $ make monitor
-$ <アプリ名等を埋める>
+$ vim ansible/roles/group_vars/all.yml
 $ make ansible
 ```
