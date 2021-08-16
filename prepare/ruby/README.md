@@ -56,6 +56,7 @@ p r.take
 ```
 $ git clone https://github.com/tagomoris/xbuild.git
 $ RUBY_CONFIGURE_OPTS=--with-jemalloc xbuild/ruby-install 3.0.2 ~/local/ruby3
+$ ruby -r rbconfig -e 'puts RbConfig::CONFIG["MAINLIBS"]' # check
 ```
 
 ## stackprof
