@@ -86,6 +86,10 @@ innodb_autoinc_lock_mode = 2
 # Max packet length to send to or receive from the server
 #max_allowed_packet	= 16M
 
+# Dump only the hottest N% of each buffer pool, defaults to 25
+# NOTE: It may take a long time to boot up when it's 100.
+#innodb_buffer_pool_dump_pct = 100
+
 # Dump the buffer pool into a file named @@innodb_buffer_pool_filename
 # (Defaults to on; use --skip-innodb-buffer-pool-dump-at-shutdown to disable.)
 innodb_buffer_pool_dump_at_shutdown = 1
