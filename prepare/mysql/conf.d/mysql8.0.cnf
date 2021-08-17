@@ -93,3 +93,5 @@ innodb_buffer_pool_dump_at_shutdown = 1
 #Load the buffer pool from a file named @@innodb_buffer_pool_filename
 # (Defaults to on; use --skip-innodb-buffer-pool-load-at-startup to disable.)
 innodb_buffer_pool_load_at_startup = 1
+
+[client]
