@@ -5,4 +5,5 @@
     repo: "{{ repository }}"
     dest: "/home/{{ application_user }}/git"
     ssh_opts: "-i {{ deploy_key }}"
+    accept_hostkey: yes
     force: yes
