@@ -18,7 +18,7 @@
 - [nginx](./prepare/nginx/README.md)
 - [ruby](./prepare/ruby/README.md)
 - [kernel](./prepare/kernel/README.md)
-- [newrelic](./prepare/newrelic/newrelic.yml)
+- [newrelic](./prepare/newrelic/README.md)
 
 ## 開始前対応
 ```
