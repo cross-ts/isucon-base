@@ -6,6 +6,7 @@
     - role: ssh
     - role: git
     - role: htop
+  # - role: netdata # 個人的にはdstatで十分なので入れない
     - role: purge
 
 - hosts: common
@@ -33,6 +34,7 @@
   become_user: root
   roles:
     - role: alp
+    - role: stackprof
     - role: reload/nginx
     - role: reload/web
     - role: stop/mysql
