@@ -66,7 +66,6 @@ $ ruby -r rbconfig -e 'puts RbConfig::CONFIG["MAINLIBS"]' # check
 ### enable
 ```
 gem 'stackprof'
-gem 'stackprof-webnav'
 ```
 
 - Rack周りに下記を追加
