@@ -9,6 +9,7 @@ monitor:
 	@ssh $(COMMON_SERVER) "ps auxf" | tee monitor/results/ps-aufx.txt
 	@ssh $(COMMON_SERVER) "lscpu" | tee monitor/results/lscpu.txt
 	@ssh $(COMMON_SERVER) "free -h" | tee monitor/results/free.txt
+	@ssh $(COMMON_SERVER) "sudo sysctl -a" | tee monitor/results/sysctl.txt
 
 .PHONY: alp
 alp:
