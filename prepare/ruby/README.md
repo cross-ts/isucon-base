@@ -73,13 +73,13 @@ gem 'stackprof-webnav'
 ```
 use StackProf::Middleware, enalbed: true,
                            mode: :wall,
-                           iterval: 1000,
+                           interval: 1000,
                            save_every: 5,
                            raw: true,
-                           path: '/dev/shm/stackprof/'
+                           path: '/home/isucon/stackprof/'
 ```
 
 ```
 $ : # nginxでいい感じにするとかは自由に
-$ bundle exec stackprof-webnav -d /dev/shm/stackprof -o 0.0.0.0
+$ bundle exec stackprof-webnav -d /home/isucon/stackprof
 ```
