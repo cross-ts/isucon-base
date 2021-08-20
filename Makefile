@@ -23,6 +23,7 @@ pt:
 clean:
 	@ssh $(COMMON_SERVER) ": | sudo tee /var/log/mysql/slow.log"
 	@ssh $(COMMON_SERVER) ": | sudo tee /var/log/nginx/access.log"
+	@ssh $(COMMON_SERVER) "ls /home/isucon/stackprof | xargs -IXXX sudo rm -fr /home/isucon/stackprof/"
 	@ssh $(COMMON_SERVER) "ls /dev/shm/ | xargs -IXXX sudo rm -fr /dev/shm/XXX"
 	@ssh $(COMMON_SERVER) "sudo systemctl restart nginx"
 

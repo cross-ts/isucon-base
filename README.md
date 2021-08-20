@@ -40,6 +40,7 @@ $ make ansible
 ### ssh後
 ```
 $ ssh isucon@isucon1
+$ gem install stackprof-webnav
 $ echo "NEW_RELIC_LICENSE_KEY=" > env.secret.sh
 $ cp -r /etc/nginx/{nginx.conf,conf.d,sites-available} ~/git/isucon/nginx/
 $ cp -r /etc/mysql/{mysql.cnf,conf.d,mysql.conf.d} ~/git/isucon/mysql/
